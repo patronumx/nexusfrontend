@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Nexalith Solutions Healthcare Palette (Clinical Cyan & Trust Indigo) */
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  /* Medical Sky */
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-primary-800: #075985;
+  --color-primary-900: #0c4a6e;
+
+  /* Accent Palette - Medical Teal/Emerald */
+  --color-accent-200: #99f6e4;
+  --color-accent-300: #5eead4;
+  --color-accent-400: #2dd4bf;
+  --color-accent-500: #14b8a6;
+  --color-accent-600: #0d9488;
+
+  --color-slate-950: #04060b;
+  /* Even deeper obsidian height */
+  --color-slate-900: #0f172a;
+  --color-slate-800: #1e293b;
+
+  --color-bg-main: #f8fafc;
+  --color-bg-card: #ffffff;
+
+  /* Ultra-Fidelity Shadow Tokens - Healthcare Precision */
+  --shadow-medical-sm: 0 1px 3px 0 rgb(14 165 233 / 0.1), 0 1px 2px -1px rgb(14 165 233 / 0.1);
+  --shadow-medical-md: 0 10px 25px -5px rgb(14 165 233 / 0.1), 0 8px 10px -6px rgb(14 165 233 / 0.1);
+  --shadow-medical-lg: 0 25px 50px -12px rgb(14 165 233 / 0.2);
+  --shadow-glow: 0 0 25px -4px var(--color-primary-400);
+  --shadow-glass: 0 8px 32px 0 rgba(14, 165, 233, 0.12);
+
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --scrollbar-bg: #f8fafc;
+  --scrollbar-thumb: #e2e8f0;
+  --scrollbar-thumb-hover: #cbd5e1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+:root {
+  --p-50: var(--color-primary-50);
+  --p-100: var(--color-primary-100);
+  --p-200: var(--color-primary-200);
+  --p-300: var(--color-primary-300);
+  --p-400: var(--color-primary-400);
+  --p-500: var(--color-primary-500);
+  --p-600: var(--color-primary-600);
+  --p-700: var(--color-primary-700);
+  --p-800: var(--color-primary-800);
+  --p-900: var(--color-primary-900);
+  --a-500: var(--color-accent-500);
+  --bg-main: var(--color-bg-main);
+  --text-muted: #64748b;
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --border-subtle: rgba(226, 232, 240, 0.6);
+}
+
+@layer base {
+  * {
+    @apply box-border m-0 p-0 antialiased selection:bg-primary-100 selection:text-primary-900;
+  }
+
+  body {
+    @apply font-sans bg-bg-main text-slate-900 leading-relaxed overflow-x-hidden;
+    background: radial-gradient(circle at top right, rgba(14, 165, 233, 0.03), transparent 40%),
+      radial-gradient(circle at bottom left, rgba(14, 165, 233, 0.02), transparent 40%);
+    background-attachment: fixed;
+  }
+}
+
+/* Elite UI Utilities */
+.glass-panel {
+  @apply bg-white/80 backdrop-blur-2xl border border-white/40 shadow-glass;
+}
+
+.medical-card {
+  @apply bg-white rounded-[2.5rem] shadow-medical-md border border-gray-100 transition-all duration-500 hover:shadow-medical-lg hover:-translate-y-1.5;
+}
+
+.stat-card {
+  @apply p-8 bg-white rounded-[2rem] border border-gray-50 shadow-sm transition-all duration-500 hover:shadow-medical-md hover:border-primary-200/50 hover:bg-slate-50/30;
+}
+
+.clinical-badge {
+  @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-current;
+}
+
+.background-grid {
+  background-image:
+    radial-gradient(circle at 2px 2px, rgba(58, 122, 141, 0.05) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+/* Typography Extensions */
+.hero-gradient {
+  @apply bg-gradient-to-br from-slate-900 to-slate-700 bg-clip-text text-transparent;
+}
+
+.subtle-label {
+  @apply text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2;
+}
+
+/* Professional Button System */
+.btn {
+  @apply px-8 py-4 rounded-2xl font-black text-[11px] uppercase tracking-[0.2em] transition-all duration-500 flex items-center justify-center gap-3 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-primary {
+  @apply bg-primary-500 text-white shadow-lg shadow-primary-500/20 hover:bg-primary-600 hover:shadow-primary-500/40 hover:-translate-y-0.5;
+}
+
+.btn-secondary {
+  @apply bg-slate-900 text-white shadow-lg shadow-slate-900/10 hover:bg-slate-800 hover:shadow-slate-900/20 hover:-translate-y-0.5;
+}
+
+.btn-outline {
+  @apply bg-white text-slate-600 border border-slate-200 hover:border-primary-200 hover:text-primary-600 hover:bg-primary-50/50;
+}
+
+/* Navigation & Layout */
+.app-header {
+  @apply h-20 bg-white/70 backdrop-blur-xl border-b border-gray-100/50 flex items-center justify-between px-10 sticky top-0 z-50;
+}
+
+.content-wrapper {
+  @apply max-w-[1600px] mx-auto p-8 md:p-12;
+}
+
+/* Table Refinements */
+.clinical-table-wrapper {
+  @apply bg-white rounded-[2.5rem] shadow-medical-sm border border-gray-100 overflow-hidden;
+}
+
+.clinical-table th {
+  @apply px-8 py-5 bg-gray-50/50 text-[10px] font-black text-gray-400 uppercase tracking-widest border-b border-gray-100;
+}
+
+.clinical-table td {
+  @apply px-8 py-6 text-sm border-b border-gray-50 transition-colors;
+}
+
+.clinical-table tr:hover td {
+  @apply bg-primary-50/30;
+}
+
+/* Key Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sidebar / Role Toggles */
+.role-toggle-group {
+  @apply bg-gray-50/50 p-1 rounded-2xl border border-gray-100 flex items-center;
+}
+
+.role-toggle-btn {
+  @apply px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-wider transition-all;
+}
+
+.role-toggle-btn-active {
+  @apply bg-white text-primary-500 shadow-sm;
+}
+
+.role-toggle-btn-inactive {
+  @apply text-gray-400 hover:text-gray-600;
+}
+
+.hero-title {
+  font-size: 4rem;
+  line-height: 1.1;
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+  letter-spacing: -0.03em;
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* Visual Assets (Cards) */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 5rem;
+}
+
+.feature-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.4s ease;
+  text-align: left;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-medical);
+}
+
+.icon-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: var(--p-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--p-600);
+}
+
+/* Animations */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
